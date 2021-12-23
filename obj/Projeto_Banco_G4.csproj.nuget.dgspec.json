@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\teste\\Projeto_Banco_G4.csproj": {}
+    "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\ProjetoBancoG4\\ProjetoBancoG4\\Projeto_Banco_G4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\teste\\Projeto_Banco_G4.csproj": {
+    "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\ProjetoBancoG4\\ProjetoBancoG4\\Projeto_Banco_G4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\teste\\Projeto_Banco_G4.csproj",
+        "projectUniqueName": "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\ProjetoBancoG4\\ProjetoBancoG4\\Projeto_Banco_G4.csproj",
         "projectName": "Projeto_Banco_G4",
-        "projectPath": "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\teste\\Projeto_Banco_G4.csproj",
+        "projectPath": "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\ProjetoBancoG4\\ProjetoBancoG4\\Projeto_Banco_G4.csproj",
         "packagesPath": "C:\\Users\\daamaral\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\teste\\obj\\",
+        "outputPath": "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\ProjetoBancoG4\\ProjetoBancoG4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\daamaral\\AppData\\Roaming\\NuGet\\NuGet.Config",

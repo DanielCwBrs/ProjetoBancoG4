@@ -23,7 +23,8 @@ namespace Projeto_Banco_G4
             this.TipoCliente = tipocliente;
         }
 
-        public void CadastrarDados (Cliente cliente)
+        public void CadastrarDados (Cliente cliente) //tudo que estiver na função "CadastrarDados" com parametros Cliente cliente,
+                                                     //iram aparecer la no program.cs no switch case 1
         {
             Console.WriteLine("Digite o nome do cliente:");
             cliente.Nome = Console.ReadLine();

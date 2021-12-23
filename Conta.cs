@@ -12,8 +12,11 @@ namespace Projeto_Banco_G4
         private double Saldo { get; set; }
         private Cliente cliente { get; set; }
 
-        public Conta() { }
-        public Conta(string numero, double saldo, Cliente cliente)
+        public Conta() { } //primeiro informamos ao nosso programa que utilizaremos uma classe sem parametros, ou seja, o construtor () é do tipo vazio,
+                           //ele não recebe nada
+        public Conta(string numero, double saldo, Cliente cliente) //todas as minhas variaveis que utilizarei na minha classe "Conta" ja recebem parametros,
+                                                                   //esses parametros devem ser suas propriedades (Numero, Saldo, Cliente) que foram inseridas
+                                                                   //em get-set, para que depois você as converta em tipos de variaveis, o
         {
             this.cliente = cliente;
             this.Saldo = saldo;
@@ -49,8 +52,8 @@ namespace Projeto_Banco_G4
         }
         public void criarConta(Conta conta, Cliente cliente)
         {
-            Console.WriteLine("Digite o número da conta:");
-            conta.Numero = Console.ReadLine();
+            Console.WriteLine("Número da conta: 123456"); //essa conta tem que aparecer na tela do usuario
+            //conta.Numero = Console.ReadLine();
             conta.Saldo = 0;
             conta.cliente = cliente;
 
