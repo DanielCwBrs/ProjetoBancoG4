@@ -1,17 +1,17 @@
-﻿using System;
+﻿using System; //biblioteca convencional
 namespace Projeto_Banco_G4
 {
 
     class Program
     {
 
-        public static void Main(string[] args)
+        public static void Main(string[] args)  //Aqui em static void Main, servirá somente para receber e enviar o que o usuario desejar; se ele quer saber o nome de uma pessoa, é por aqui que sera feito o questionamento, se ele quer guardar uma info tambem é por aqui
         {
-            //int opc = 5 digito 5 referente ao valor de saída da estrutura de escolhas
+            //int opc = 5 / digito 5 referente ao valor de saída da estrutura de escolhas
             int opc = 5;
             //
             Cliente cliente = new Cliente();
-            Conta conta = new Conta();
+            conta conta = new conta();
 
             do //o do ele faz que a informação que sera gerada possa retornar false, assim, cancelando a operação;
                //em while ele retornara se o valor for diferente do esperado
@@ -33,7 +33,7 @@ namespace Projeto_Banco_G4
                         Console.WriteLine("Cadastrar Cliente");
                         cliente.CadastrarDados(cliente); //valor de retorno, ou seja, de onde vão sair as informações que serão impressas na tela? por isso inserimos
                                                          //cliente.CadastrarDados(cliente), ele vai buscar as infos diretamente na classe "Cliente.cs":
-                        conta.criarConta(conta, cliente);//mesma finalidade, aqui ele vai imprimir as infos na tela para o usuario de acordo com o que estiver la na classe "Conta.cs"
+                        conta.criarconta(conta, cliente);//mesma finalidade, aqui ele vai imprimir as infos na tela para o usuario de acordo com o que estiver la na classe "conta.cs"
                         break;
                     case 2:
                         Console.WriteLine("Depositar Dinheiro");
@@ -50,7 +50,8 @@ namespace Projeto_Banco_G4
                         Console.WriteLine(cliente.toString());
                         if(conta.ConsultaSaldo(conta) < 5000)
                         {
-                            Console.WriteLine("Usuário conta: COMUM");
+                            Console.WriteLine("Usuário conta: Comum");
+
                         }
                         else if (conta.ConsultaSaldo(conta) < 15000)
                         {
@@ -68,9 +69,9 @@ namespace Projeto_Banco_G4
                         Console.WriteLine("Opção Inválida");
                         break;
                 }
-            }
-             //!= se diferente de 5, ou seja, usuario inserir algum valor diferente do switch, ele invalida
-            while (opc != 5);
+            } while (opc != 5);
+            //!= se diferente de 5, ou seja, usuario inserir algum valor diferente do switch, ele invalida
+
         }
     }
 }

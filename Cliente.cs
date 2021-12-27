@@ -8,19 +8,20 @@ namespace Projeto_Banco_G4
 {
     class Cliente
     {
-        private string Nome { get; set; }
+        private string Nome { get; set; } //get, valor de retorno / set, valor de entrada
         private string CPF { get; set; }
-        private int TipoCliente { get; set; }
+        private int TipoDeConta { get; set; }
+        
 
-        enum TiposCliente { ContaCorrente = 1, ContaPouPança = 2 }
+        enum TiposDeConta { contaCorrente = 1, contaPouPança = 2 }
 
         public Cliente () {}
 
-        public Cliente(string nome, string cpf, int tipocliente)
+        public Cliente(string nome, string cpf, int tipodeconta) //Aqui orientaremos ao programa o que ele deve armazenar na classe cliente, onde a variavel é atribuida a propriedade
         { 
-            this.Nome = nome;
+            this.Nome = nome; //precisamos dar uma referencia ao nosso programa de que aquela variavel será atribuida a nossa propriedade
             this.CPF = cpf;
-            this.TipoCliente = tipocliente;
+            this.TipoDeConta = tipodeconta;
         }
 
         public void CadastrarDados (Cliente cliente) //tudo que estiver na função "CadastrarDados" com parametros Cliente cliente,
@@ -33,11 +34,11 @@ namespace Projeto_Banco_G4
             {
                 Console.WriteLine("Digite o CPF do cliente:");
                 cliente.CPF = Console.ReadLine();
-                if (!validarCpf(cliente.CPF))
+                if (!ValidarCpf(cliente.CPF))
                 {
                     Console.WriteLine("CPF Inválido!");
                 }
-            } while (!validarCpf(cliente.CPF));
+            } while (!ValidarCpf(cliente.CPF));
 
 
             int op;
@@ -49,11 +50,11 @@ namespace Projeto_Banco_G4
                 op = int.Parse(Console.ReadLine());
                 switch (op)
                 {
-                    case (int)TiposCliente.ContaCorrente:
-                        cliente.TipoCliente = op;
+                    case (int)TiposDeConta.contaCorrente:
+                        cliente.TipoDeConta = op;
                         break;
-                    case (int)TiposCliente.ContaPouPança:
-                        cliente.TipoCliente = op;
+                    case (int)TiposDeConta.contaPouPança:
+                        cliente.TipoDeConta = op;
                         break;
                     default:
                         Console.WriteLine("Opção Inválida");
@@ -61,9 +62,12 @@ namespace Projeto_Banco_G4
                 }
             } while (op != 1 && op != 2);
             Console.WriteLine("Cliente Cadastrado com sucesso!");
+
+            //fazer aqui um if para tipo de cliente
+
         }
 
-        public bool validarCpf(string cpf)
+        public bool ValidarCpf(string cpf)
         {
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -108,8 +112,8 @@ namespace Projeto_Banco_G4
                 Nome +
                 "\nCPF: " +
                 CPF + 
-                "\nTipo de Conta " +
-                TipoCliente;
+                "\nTipo de conta " +
+                TipoDeConta;
         }
     }
 }
