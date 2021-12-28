@@ -11,17 +11,19 @@ namespace Projeto_Banco_G4
         private string Nome { get; set; } //get, valor de retorno / set, valor de entrada
         private string CPF { get; set; }
         private int TipoDeConta { get; set; }
+        public DateTime DataNascimento { get; set; }
         
 
         enum TiposDeConta { contaCorrente = 1, contaPouPança = 2 }
 
         public Cliente () {}
 
-        public Cliente(string nome, string cpf, int tipodeconta) //Aqui orientaremos ao programa o que ele deve armazenar na classe cliente, onde a variavel é atribuida a propriedade
+        public Cliente(string nome, string cpf, int tipodeconta, DateTime dataNascimento) //Aqui orientaremos ao programa o que ele deve armazenar na classe cliente, onde a variavel é atribuida a propriedade
         { 
             this.Nome = nome; //precisamos dar uma referencia ao nosso programa de que aquela variavel será atribuida a nossa propriedade
             this.CPF = cpf;
             this.TipoDeConta = tipodeconta;
+            this.DataNascimento = dataNascimento;
         }
 
         public void CadastrarDados (Cliente cliente) //tudo que estiver na função "CadastrarDados" com parametros Cliente cliente,
@@ -39,7 +41,12 @@ namespace Projeto_Banco_G4
                     Console.WriteLine("CPF Inválido!");
                 }
             } while (!ValidarCpf(cliente.CPF));
+            
+            Console.WriteLine("Digite a data de nascimento");
 
+            //DateTime data = DateTime.Parse(Console.ReadLine());
+
+            cliente.DataNascimento = DateTime.Parse(Console.ReadLine());
 
             int op;
             do
@@ -62,7 +69,6 @@ namespace Projeto_Banco_G4
                 }
             } while (op != 1 && op != 2);
             Console.WriteLine("Cliente Cadastrado com sucesso!");
-
             //fazer aqui um if para tipo de cliente
 
         }
@@ -105,15 +111,20 @@ namespace Projeto_Banco_G4
             return cpf.EndsWith(digito);
         
         }
+        
+
+       
 
         public string toString()
         {
-            return "Nome: "+
+            return "Nome: " +
                 Nome +
                 "\nCPF: " +
-                CPF + 
+                CPF +
                 "\nTipo de conta " +
-                TipoDeConta;
+                TipoDeConta; //+
+                //"\nData de Nascimento: " +
+                //DataNascimento;
         }
     }
 }

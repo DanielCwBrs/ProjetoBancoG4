@@ -11,7 +11,11 @@ namespace Projeto_Banco_G4
             int opc = 5;
             //
             Cliente cliente = new Cliente();
-            conta conta = new conta();
+            Conta conta = new Conta(); //checar erro
+            ContaPoupanca contaPoupanca = new ContaPoupanca();
+            ContaCorrente contaCorrente = new ContaCorrente();
+
+            //DateTime data = new DateTime();
 
             do //o do ele faz que a informação que sera gerada possa retornar false, assim, cancelando a operação;
                //em while ele retornara se o valor for diferente do esperado
@@ -47,7 +51,9 @@ namespace Projeto_Banco_G4
                         Console.WriteLine("Consultar Saldo/Dados da conta");
                         
                         Console.WriteLine("Saldo: R$ "+ conta.ConsultaSaldo(conta));
+                        Console.WriteLine($"Saldo mais rendimento mensal: {conta.Saldo}");
                         Console.WriteLine(cliente.toString());
+                        Console.WriteLine(cliente.DataNascimento);
                         if(conta.ConsultaSaldo(conta) < 5000)
                         {
                             Console.WriteLine("Usuário conta: Comum");

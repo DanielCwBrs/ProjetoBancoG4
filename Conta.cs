@@ -6,15 +6,19 @@ using System.Threading.Tasks;
 
 namespace Projeto_Banco_G4
 {
-    class conta
+    abstract class Conta
     {
         private string Numero { get; set; } //get, valor de retorno / set, valor de entrada
-        private double Saldo { get; set; }
+        public double Saldo { get; protected set; } //lembrar de alterar para private "Testando"
         private Cliente Cliente { get; set; }
 
-        public conta() { } //primeiro informamos ao nosso programa que utilizaremos uma classe sem parametros, ou seja, o construtor () é do tipo vazio,
+        //enum TiposDeConta { contaCorrente = 1, contaPouPança = 2 }
+
+
+
+        public Conta() { } //primeiro informamos ao nosso programa que utilizaremos uma classe sem parametros, ou seja, o construtor () é do tipo vazio,
                            //ele não recebe nada
-        public conta(string numero, double saldo, Cliente cliente) //todas as minhas variaveis que utilizarei na minha classe "conta" ja recebem parametros,
+        public Conta(string numero, double saldo, Cliente cliente) //todas as minhas variaveis que utilizarei na minha classe "conta" ja recebem parametros,
                                                                    //esses parametros devem ser suas propriedades (Numero, Saldo, Cliente) que foram inseridas
                                                                    //em get-set, para que depois você as converta em tipos de variaveis, o
         {
@@ -23,7 +27,8 @@ namespace Projeto_Banco_G4
             this.Numero = numero;
         }
 
-        public void Transferir(conta conta)
+
+        public void Transferir(Conta conta)
         {
 
             Console.WriteLine("Qual o valor do saque?");
@@ -50,7 +55,7 @@ namespace Projeto_Banco_G4
                 Console.WriteLine("Valor Invalido");
             }
         }
-        public void criarconta(conta conta, Cliente cliente)
+        public void criarconta(Conta conta, Cliente cliente)
         {
             Console.WriteLine("Número da conta: 123456"); //essa conta tem que aparecer na tela do usuario
             //conta.Numero = Console.ReadLine();
@@ -59,7 +64,7 @@ namespace Projeto_Banco_G4
 
         }
 
-        public void Depositar(conta conta)
+        public void Depositar(Conta conta)
         {
 
             Console.WriteLine("Qual o valor do deposito?");
@@ -76,9 +81,13 @@ namespace Projeto_Banco_G4
             }
         }
 
-        public double ConsultaSaldo(conta conta)
+        public double ConsultaSaldo(Conta conta)
         {
             return conta.Saldo;
         }
+
+        public abstract void Saca(double saldo);
+        
+        //public abstract void Operacoes(double saldo);
     }
 }
