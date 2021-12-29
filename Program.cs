@@ -7,15 +7,21 @@ namespace Projeto_Banco_G4
 
         public static void Main(string[] args)  //Aqui em static void Main, servirá somente para receber e enviar o que o usuario desejar; se ele quer saber o nome de uma pessoa, é por aqui que sera feito o questionamento, se ele quer guardar uma info tambem é por aqui
         {
+            
+            Cliente cliente = new Cliente();
+            Conta conta = new Conta(); //checar erro
+            ContaPoupanca contaPoupanca = new ContaPoupanca(); 
+            ContaCorrente contaCorrente = new ContaCorrente();
+            //ContaPoupanca contaPoupanca = new ContaPoupanca();
+            //ContaCorrente contaCorrente = new ContaCorrente();
+
+
+
+            //DateTime data = new DateTime();
+
             //int opc = 5 / digito 5 referente ao valor de saída da estrutura de escolhas
             int opc = 5;
             //
-            Cliente cliente = new Cliente();
-            Conta conta = new Conta(); //checar erro
-            ContaPoupanca contaPoupanca = new ContaPoupanca();
-            ContaCorrente contaCorrente = new ContaCorrente();
-
-            //DateTime data = new DateTime();
 
             do //o do ele faz que a informação que sera gerada possa retornar false, assim, cancelando a operação;
                //em while ele retornara se o valor for diferente do esperado
@@ -37,7 +43,7 @@ namespace Projeto_Banco_G4
                         Console.WriteLine("Cadastrar Cliente");
                         cliente.CadastrarDados(cliente); //valor de retorno, ou seja, de onde vão sair as informações que serão impressas na tela? por isso inserimos
                                                          //cliente.CadastrarDados(cliente), ele vai buscar as infos diretamente na classe "Cliente.cs":
-                        conta.criarconta(conta, cliente);//mesma finalidade, aqui ele vai imprimir as infos na tela para o usuario de acordo com o que estiver la na classe "conta.cs"
+                        conta.Criarconta(conta, cliente);//mesma finalidade, aqui ele vai imprimir as infos na tela para o usuario de acordo com o que estiver la na classe "conta.cs"
                         break;
                     case 2:
                         Console.WriteLine("Depositar Dinheiro");
@@ -51,7 +57,10 @@ namespace Projeto_Banco_G4
                         Console.WriteLine("Consultar Saldo/Dados da conta");
                         
                         Console.WriteLine("Saldo: R$ "+ conta.ConsultaSaldo(conta));
-                        Console.WriteLine($"Saldo mais rendimento mensal: {conta.Saldo}");
+                        //contaPoupanca.AcrescentarRendimento(contaPoupanca);
+                        Console.WriteLine($"Saldo mais rendimento mensal: {contaPoupanca.AcrescentarRendimento(contaPoupanca)}");
+                        Console.WriteLine($"Saldo mais taxa mensal: {contaCorrente.DescontarTaxa(contaCorrente)}");
+
                         Console.WriteLine(cliente.toString());
                         Console.WriteLine(cliente.DataNascimento);
                         if(conta.ConsultaSaldo(conta) < 5000)

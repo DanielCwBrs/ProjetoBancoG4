@@ -10,6 +10,7 @@ namespace Projeto_Banco_G4
     {
         private float TaxaRendimento { get; set; }
 
+
         public ContaPoupanca() { }
 
         public ContaPoupanca(float taxaRendimento)
@@ -17,14 +18,17 @@ namespace Projeto_Banco_G4
             this.TaxaRendimento = taxaRendimento;
         }
 
-        public void AcrescentarRendimento(double saldo)
+        public void AcrescentarRendimento(decimal Saldo);
         {
-            this.Saldo -= (saldo + 0.10);
+            this.Saldo = (Saldo + 0.10m);
             //Console.WriteLine($"Saldo mais rendimento mensal: {this.Saldo}");
         }
-        public override void Saca(double saldo)
+        public override void Saca(decimal saldo)
         {
-            
+            this.Saldo = saldo;
+
+            AcrescentarRendimento();
         }
+        
     }
 }

@@ -18,7 +18,7 @@ namespace Projeto_Banco_G4
 
         public Cliente () {}
 
-        public Cliente(string nome, string cpf, int tipodeconta, DateTime dataNascimento) //Aqui orientaremos ao programa o que ele deve armazenar na classe cliente, onde a variavel é atribuida a propriedade
+        public Cliente(string nome, string cpf, DateTime dataNascimento, int tipodeconta) //Aqui orientaremos ao programa o que ele deve armazenar na classe cliente, onde a variavel é atribuida a propriedade
         { 
             this.Nome = nome; //precisamos dar uma referencia ao nosso programa de que aquela variavel será atribuida a nossa propriedade
             this.CPF = cpf;
@@ -29,12 +29,12 @@ namespace Projeto_Banco_G4
         public void CadastrarDados (Cliente cliente) //tudo que estiver na função "CadastrarDados" com parametros Cliente cliente,
                                                      //iram aparecer la no program.cs no switch case 1
         {
-            Console.WriteLine("Digite o nome do cliente:");
+            Console.WriteLine("Digite seu nome completo:");
             cliente.Nome = Console.ReadLine();
 
             do
             {
-                Console.WriteLine("Digite o CPF do cliente:");
+                Console.WriteLine("Digite seu CPF SEM pontos ou traços (11 digitos):");
                 cliente.CPF = Console.ReadLine();
                 if (!ValidarCpf(cliente.CPF))
                 {
@@ -58,10 +58,10 @@ namespace Projeto_Banco_G4
                 switch (op)
                 {
                     case (int)TiposDeConta.contaCorrente:
-                        cliente.TipoDeConta = op;
+                        cliente.TipoDeConta = Console.WriteLine("Saldo "+ ;
                         break;
                     case (int)TiposDeConta.contaPouPança:
-                        cliente.TipoDeConta = op;
+                        cliente.TipoDeConta = Console.WriteLine($"{op} Conta Poupança selecionada, seu saldo com a taxa de rendimento é de: {};
                         break;
                     default:
                         Console.WriteLine("Opção Inválida");
@@ -117,9 +117,9 @@ namespace Projeto_Banco_G4
 
         public string toString()
         {
-            return "Nome: " +
+            return "Está conta pertence a: " +
                 Nome +
-                "\nCPF: " +
+                " - CPF: " +
                 CPF +
                 "\nTipo de conta " +
                 TipoDeConta; //+
