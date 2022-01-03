@@ -18,12 +18,12 @@ namespace Projeto_Banco_G4
 
         public Cliente () {}
 
-        public Cliente(string nome, string cpf, DateTime dataNascimento, int tipodeconta) //Aqui orientaremos ao programa o que ele deve armazenar na classe cliente, onde a variavel é atribuida a propriedade
+        public Cliente(string nome, string cpf, DateTime data, int tipodeconta) //Aqui orientaremos ao programa o que ele deve armazenar na classe cliente, onde a variavel é atribuida a propriedade
         { 
             this.Nome = nome; //precisamos dar uma referencia ao nosso programa de que aquela variavel será atribuida a nossa propriedade
             this.CPF = cpf;
             this.TipoDeConta = tipodeconta;
-            this.DataNascimento = dataNascimento;
+            this.DataNascimento = data;
         }
 
         public void CadastrarDados (Cliente cliente) //tudo que estiver na função "CadastrarDados" com parametros Cliente cliente,
@@ -42,11 +42,11 @@ namespace Projeto_Banco_G4
                 }
             } while (!ValidarCpf(cliente.CPF));
             
-            Console.WriteLine("Digite a data de nascimento");
+            Console.WriteLine("Digite sua data de nascimento:");
 
-            //DateTime data = DateTime.Parse(Console.ReadLine());
+            DateTime data = DateTime.Parse(Console.ReadLine());
 
-            cliente.DataNascimento = DateTime.Parse(Console.ReadLine());
+            //cliente.DataAbertura = DateTime.Parse(Console.ReadLine());
 
             int op;
             do
@@ -58,10 +58,10 @@ namespace Projeto_Banco_G4
                 switch (op)
                 {
                     case (int)TiposDeConta.contaCorrente:
-                        cliente.TipoDeConta = Console.WriteLine("Saldo "+ ;
+                        cliente.TipoDeConta = (int)(TiposDeConta)op;
                         break;
                     case (int)TiposDeConta.contaPouPança:
-                        cliente.TipoDeConta = Console.WriteLine($"{op} Conta Poupança selecionada, seu saldo com a taxa de rendimento é de: {};
+                        cliente.TipoDeConta = (int)(TiposDeConta)op; 
                         break;
                     default:
                         Console.WriteLine("Opção Inválida");

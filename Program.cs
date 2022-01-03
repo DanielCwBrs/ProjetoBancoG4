@@ -9,18 +9,16 @@ namespace Projeto_Banco_G4
         {
             
             Cliente cliente = new Cliente();
-            Conta conta = new Conta(); //checar erro
-            ContaPoupanca contaPoupanca = new ContaPoupanca(); 
-            ContaCorrente contaCorrente = new ContaCorrente();
-            //ContaPoupanca contaPoupanca = new ContaPoupanca();
-            //ContaCorrente contaCorrente = new ContaCorrente();
+            //Conta conta = new Conta; //checar erro
+            ContaPoupanca contaP = new ContaPoupanca();
+            ContaCorrente contaC = new ContaCorrente();
 
 
 
             //DateTime data = new DateTime();
 
             //int opc = 5 / digito 5 referente ao valor de saída da estrutura de escolhas
-            int opc = 5;
+            int opc = 6;
             //
 
             do //o do ele faz que a informação que sera gerada possa retornar false, assim, cancelando a operação;
@@ -31,8 +29,9 @@ namespace Projeto_Banco_G4
                     "\n                              1 para cliente" +
                     "\n                              2 para depositar" +
                     "\n                              3 para tranferir" +
-                    "\n                              4 para colsultar" +
-                    "\n                              5 para sair\n");
+                    "\n                              4 Dados Cliente" +
+                    "\n                              5 para colsultar" +
+                    "\n                              6 para sair\n");
                 //cria uma variavel para salvar a resposta do usuario e a converte em inteiro:
                 opc = int.Parse(Console.ReadLine());
                 //switch case, A info que será impressa para o usuario caso ele digite um valor entre 1 à 5 
@@ -43,48 +42,61 @@ namespace Projeto_Banco_G4
                         Console.WriteLine("Cadastrar Cliente");
                         cliente.CadastrarDados(cliente); //valor de retorno, ou seja, de onde vão sair as informações que serão impressas na tela? por isso inserimos
                                                          //cliente.CadastrarDados(cliente), ele vai buscar as infos diretamente na classe "Cliente.cs":
-                        conta.Criarconta(conta, cliente);//mesma finalidade, aqui ele vai imprimir as infos na tela para o usuario de acordo com o que estiver la na classe "conta.cs"
+                        contaP.Criarconta("12345", cliente);//mesma finalidade, aqui ele vai imprimir as infos na tela para o usuario de acordo com o que estiver la na classe "conta.cs"
+                        contaC.Criarconta("24567", cliente);
+                        //contaP.EscolherConta();
+                        //contaC.EscolherConta();
                         break;
                     case 2:
                         Console.WriteLine("Depositar Dinheiro");
-                        conta.Depositar(conta);
+                        contaP.Depositar();
+                        
+                        contaC.Depositar();
                         break;
                     case 3:
                         Console.WriteLine("Tranferir Dinheiro");
-                        conta.Transferir(conta);
+                        contaP.Transferir();
+                        contaC.Transferir();
                         break;
                     case 4:
+                        Console.WriteLine("Dados do Cliente");
+                        contaP.EscolherConta();
+                        contaC.EscolherConta();
+                        break;
+                    case 5:
                         Console.WriteLine("Consultar Saldo/Dados da conta");
                         
-                        Console.WriteLine("Saldo: R$ "+ conta.ConsultaSaldo(conta));
+                        Console.WriteLine("Saldo: R$ "+ contaP.ConsultaSaldo());
+                        Console.WriteLine("Saldo: R$ " + contaC.ConsultaSaldo());
                         //contaPoupanca.AcrescentarRendimento(contaPoupanca);
-                        Console.WriteLine($"Saldo mais rendimento mensal: {contaPoupanca.AcrescentarRendimento(contaPoupanca)}");
-                        Console.WriteLine($"Saldo mais taxa mensal: {contaCorrente.DescontarTaxa(contaCorrente)}");
+                        //Console.WriteLine($"Saldo mais rendimento mensal: {contaPoupanca.AcrescentarRendimento(contaPoupanca)}");
+                        //Console.WriteLine($"Saldo mais taxa mensal: {contaCorrente.DescontarTaxa(contaCorrente)}");
 
                         Console.WriteLine(cliente.toString());
                         Console.WriteLine(cliente.DataNascimento);
-                        if(conta.ConsultaSaldo(conta) < 5000)
+                        
+                        if(contaP.ConsultaSaldo() < 5000)
                         {
                             Console.WriteLine("Usuário conta: Comum");
 
                         }
-                        else if (conta.ConsultaSaldo(conta) < 15000)
+                        else if (contaP.ConsultaSaldo() < 15000)
                         {
                             Console.WriteLine("Usuário conta: Super");
                         }
-                        else if (conta.ConsultaSaldo(conta) >= 15000)
+                        else if (contaP.ConsultaSaldo() >= 15000)
                         {
                             Console.WriteLine("Usário conta: Premium");
                         }
                         break;
-                    case 5:
+                    case 6:
                         Console.WriteLine("Sair");
                         break;
                     default:
                         Console.WriteLine("Opção Inválida");
                         break;
                 }
-            } while (opc != 5);
+            } while (opc != 6);
             //!= se diferente de 5, ou seja, usuario inserir algum valor diferente do switch, ele invalida
 
         }
