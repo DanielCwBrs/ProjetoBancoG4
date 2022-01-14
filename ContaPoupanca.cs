@@ -9,7 +9,7 @@ namespace Projeto_Banco_G4
     class ContaPoupanca : Conta
     {
         private float TaxaRendimento { get; set; }
-
+        //Testando essa budega
         //public ContaPoupanca() { }
 
         //public ContaPoupanca(float taxaRendimento, DateTime data, decimal saldo)
@@ -39,13 +39,13 @@ namespace Projeto_Banco_G4
                 switch (op)
                 {
                     case 1:
-                        Console.WriteLine("Conta Corrente escolhida");
+                        //Console.WriteLine("Conta Corrente escolhida");
                         Transferir();
                         Depositar();
                         //ConsultaSaldo();
                         break;
                     case 2:
-                        Console.WriteLine("Conta Poupança escolhida");
+                        //Console.WriteLine("Conta Poupança escolhida");
                         Transferir();
                         Depositar();
                         //ConsultaSaldo();

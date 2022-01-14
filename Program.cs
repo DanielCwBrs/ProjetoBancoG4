@@ -9,7 +9,7 @@ namespace Projeto_Banco_G4
         {
             
             Cliente cliente = new Cliente();
-            //Conta conta = new Conta; //checar erro
+            Conta conta; //checar erro
             ContaPoupanca contaP = new ContaPoupanca();
             ContaCorrente contaC = new ContaCorrente();
 
@@ -49,19 +49,15 @@ namespace Projeto_Banco_G4
                         break;
                     case 2:
                         Console.WriteLine("Depositar Dinheiro");
-                        contaP.Depositar();
-                        
-                        contaC.Depositar();
+                        conta.EscolherConta();
                         break;
                     case 3:
                         Console.WriteLine("Tranferir Dinheiro");
-                        contaP.Transferir();
-                        contaC.Transferir();
+                        conta.EscolherConta();
                         break;
                     case 4:
                         Console.WriteLine("Dados do Cliente");
-                        contaP.EscolherConta();
-                        contaC.EscolherConta();
+                        conta.EscolherConta();
                         break;
                     case 5:
                         Console.WriteLine("Consultar Saldo/Dados da conta");
