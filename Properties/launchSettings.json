@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Projeto_Banco_G4": {
+      "commandName": "Project"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "environmentVariables": {},
+      "distributionName": ""
+    }
+  }
+}

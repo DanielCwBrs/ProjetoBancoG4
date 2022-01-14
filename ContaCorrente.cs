@@ -8,145 +8,46 @@ namespace Projeto_Banco_G4
 {
     class ContaCorrente : Conta
     {
-        private decimal TaxaManutencao { get; set; }
+        public decimal TaxaManutencao { get; set; }
 
-        //public ContaCorrente(){}
-
-        //public ContaCorrente(decimal taxaManutencao, DateTime data)
-        //{
-        //    this.TaxaManutencao = taxaManutencao;
-        //    DataAbertura = data;
-        //}
-       
-        public void DescontarTaxa()
+        public ContaCorrente(Cliente cliente) : base(cliente, "12345")
         {
-            decimal saldoNovo;
-            TaxaManutencao = 25.99m;
-            saldoNovo = (Saldo - TaxaManutencao);
-            Console.WriteLine($"Saldo após manutenção no valor de R$25.99: R${saldoNovo}");
-        }
-
-        public override void EscolherConta()
-        {
-            {
-                int op;
-                do
-                {
-                    Console.WriteLine("Selecione o tipo de conta do cliente:" +
-                        "1 para corrente" +
-                        "2 para poupança");
-                    op = int.Parse(Console.ReadLine());
-                    switch (op)
-                    {
-                        case 1:
-                            Console.WriteLine("Conta Corrente escolhida");
-                            Transferir();
-                            Depositar();
-                            //ConsultaSaldo();
-                            break;
-                        case 2:
-                            Console.WriteLine("Conta Poupança escolhida");
-                            Transferir();
-                            Depositar();
-                            //ConsultaSaldo();
-                            break;
-                        default:
-                            Console.WriteLine("Opção Inválida");
-                            break;
-                    }
-                } while (op != 1 && op != 2);
-                Console.WriteLine("Cliente Cadastrado com sucesso!");
-
-                Console.WriteLine("Sua conta é do tipo: Corrente");
-            }
-        }
-
-        public override void Criarconta(string numero, Cliente cliente)
-        {
-
-            Numero = numero; // essa conta tem que aparecer na tela do usuario
-            Saldo = 0;
-            Cliente = cliente;
-            DateTime data = DateTime.Today;
+            TipoConta = "Corrente";
+            TaxaManutencao = 1.50m;
         }
 
         public override void Transferir()
         {
-
-
-            decimal valor;
-
-            do
+            Console.WriteLine("Insira o valor desejado: ");
+            decimal valor = decimal.Parse(Console.ReadLine());
+            if (Saldo < valor + TaxaManutencao)
             {
-                Console.WriteLine("Qual o valor do saque?");
-                valor = decimal.Parse(Console.ReadLine());
-                if (valor > 0)
-                {
-
-
-                    if (Saldo - valor < 0)
-                    {
-                        Console.WriteLine($"Saldo insuficiente, sua conta Poupança possui: R${Saldo}");
-
-                    }
-                    else
-                    {
-                        Saldo -= valor;
-                        DescontarTaxa();
-                        //Console.WriteLine($"Saldo disponível da conta poupança após o saque: R${Saldo}");
-
-
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Valor Invalido");
-                }
-            } while (valor <= 0);
+                Console.WriteLine($"Você não tem saldo suficiente para essa transferência!\nSaldo: R${Saldo}");
+            }
+            else
+            {
+                Saldo -= valor + TaxaManutencao;
+                base.ClassificarCliente();
+                Console.WriteLine($"Você transferiu dinheiro da conta corrente!\nSaldo após o depósito: R${Saldo}");
+            }
         }
 
         public override void Depositar()
         {
-
-            Console.WriteLine("Qual o valor do deposito para Conta Corrente?");
+            Console.WriteLine("Insira o valor desejado: ");
             decimal valor = decimal.Parse(Console.ReadLine());
-            if (valor > 0)
-            {
-
-                Saldo += valor;
-                Console.WriteLine($"Saldo disponível na conta corrente após o depósito: R$ {Saldo}");
-            }
-            else
-            {
-                Console.WriteLine("Valor Invalido");
-            }
+            Saldo += valor - TaxaManutencao;
+            ClassificarCliente();
+            Console.WriteLine($"Você depositou dinheiro na conta poupança!\nSaldo após depósito: R${Saldo}");
         }
 
-        public override decimal ConsultaSaldo()
+        public override void ConsultarSaldo()
         {
-            return Saldo;
-            
+            Console.WriteLine($"Esta conta pertence a : {Cliente.Nome} - CPF: {Cliente.Cpf}");
+            Console.WriteLine($"Número da conta poupança: {Numero}");
+            Console.WriteLine($"O saldo atual da conta poupança é de R$ {Saldo}");
+            Console.WriteLine($"O cliente é do tipo {Cliente.Tipo}");
         }
-
-
-
-
-        //public void DescontarTaxa(decimal saldo)
-        //{
-        //    TaxaManutencao = 0.10m;
-        //    this.TaxaManutencao = saldo - TaxaManutencao;
-        //    Console.WriteLine($"O valor do saldo após taxa de manutenção ficou: {this.TaxaManutencao}");
-        //}
-        //public override void Saca(decimal saldo)
-        //{
-
-        //}
-
-
-        //public override void DescontarTaxa(ContaCorrente contaCorrente)
-        //{
-        //    this.TaxaManutencao(ContaCorrente - taxaManutencao);
-
-        //}
     }
+
 }

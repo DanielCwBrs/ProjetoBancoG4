@@ -1,100 +1,176 @@
-﻿using System; //biblioteca convencional
+﻿using System;
+
 namespace Projeto_Banco_G4
 {
-
-    class Program
+    internal class Program
     {
-
-        public static void Main(string[] args)  //Aqui em static void Main, servirá somente para receber e enviar o que o usuario desejar; se ele quer saber o nome de uma pessoa, é por aqui que sera feito o questionamento, se ele quer guardar uma info tambem é por aqui
+        static void Main(string[] args)
         {
-            
-            Cliente cliente = new Cliente();
-            Conta conta; //checar erro
-            ContaPoupanca contaP = new ContaPoupanca();
-            ContaCorrente contaC = new ContaCorrente();
+            EscolherConta();
+        }
 
-
-
-            //DateTime data = new DateTime();
-
-            //int opc = 5 / digito 5 referente ao valor de saída da estrutura de escolhas
-            int opc = 6;
-            //
-
-            do //o do ele faz que a informação que sera gerada possa retornar false, assim, cancelando a operação;
-               //em while ele retornara se o valor for diferente do esperado
+        public static int EscolherConta()
+        {
+            var cliente = new Cliente();
+            var cc = new ContaCorrente(cliente);
+            var cp = new ContaPoupanca(cliente);
+            Console.WriteLine("Selecione uma opção? 1 para conta corrente, 2 para conta poupança ou 3 para sair");
+            int opc = int.Parse(Console.ReadLine());
+            bool isValido;
+            do
             {
-                //deixando desta forma, o menu aparecera centralizado
-                Console.WriteLine("Menu - escolha a opção desejada de acordo com o número: " +
-                    "\n                              1 para cliente" +
-                    "\n                              2 para depositar" +
-                    "\n                              3 para tranferir" +
-                    "\n                              4 Dados Cliente" +
-                    "\n                              5 para colsultar" +
-                    "\n                              6 para sair\n");
-                //cria uma variavel para salvar a resposta do usuario e a converte em inteiro:
-                opc = int.Parse(Console.ReadLine());
-                //switch case, A info que será impressa para o usuario caso ele digite um valor entre 1 à 5 
-                switch (opc) //o switch usa a variavel opc como parametro para saber com que estara trabalhando, neste caso as 5 opções de escolha para o usuario
+                if (opc == 1)
+                {
+                    ChamarMenu(cc);
+                }
+                else if (opc == 2)
+                {
+                    ChamarMenuCP(cp);
+                }
+                else if (opc == 3)
+                {
+                    Environment.Exit(0);
+                }
+                isValido = opc > 1 && opc <= 2;
+                if (!isValido)
+                {
+                    Console.WriteLine("Você digitou uma opção inválida! Tente novamente!");
+                    EscolherConta();
+                }
+            } while (!isValido);
+
+            return opc;
+        }
+
+        public static int GuardarOpcaoCC(Conta conta)
+        {
+            bool isValido;
+            string opcao;
+            do
+            {
+                Console.WriteLine("Menu - escolha a opção desejada de acordo com o número: ");
+                Console.WriteLine(@$"
+                        1- Cadastrar Cliente
+                        2- Depositar dinheiro na conta corrente
+                        3- Transferir dinheiro da conta corrente
+                        4- Consultar Saldo/Dados da Conta {conta.TipoConta}
+                        5- Sair");
+                opcao = Console.ReadLine();
+                isValido = int.Parse(opcao) > 0 && int.Parse(opcao) <= 5;
+                if (!isValido)
+                {
+                    Console.WriteLine("Você digitou uma opção inválida! Tente novamente!");
+                }
+            } while (!isValido);
+
+            return int.Parse(opcao);
+        }
+
+        public static int GuardarOpcaoCP(Conta conta)
+        {
+            string opcao;
+            bool isValido;
+            do
+            {
+                Console.WriteLine("Menu - escolha a opção desejada de acordo com o número: ");
+                Console.WriteLine(@$"
+                    1- Cadastrar Cliente
+                    2- Depositar dinheiro na conta poupanca
+                    3- Transferir dinheiro da conta poupanca
+                    4- Consultar Saldo/Dados da Conta {conta.TipoConta}
+                    5- Sair");
+                opcao = Console.ReadLine();
+                isValido = int.Parse(opcao) > 0 && int.Parse(opcao) < 6;
+                if (!isValido)
+                {
+                    Console.WriteLine("Você digitou uma opção inválida! Tente novamente!");
+                }
+            } while (!isValido);
+
+            return int.Parse(opcao);
+        }
+
+
+        public static void ChamarMenu(Conta conta)
+        {
+
+            string respostaCpf = "";
+            string respostaNome = "";
+            int opcao = GuardarOpcaoCC(conta);
+            do
+            {
+                switch (opcao)
                 {
                     case 1:
-                        //info impressa:
-                        Console.WriteLine("Cadastrar Cliente");
-                        cliente.CadastrarDados(cliente); //valor de retorno, ou seja, de onde vão sair as informações que serão impressas na tela? por isso inserimos
-                                                         //cliente.CadastrarDados(cliente), ele vai buscar as infos diretamente na classe "Cliente.cs":
-                        contaP.Criarconta("12345", cliente);//mesma finalidade, aqui ele vai imprimir as infos na tela para o usuario de acordo com o que estiver la na classe "conta.cs"
-                        contaC.Criarconta("24567", cliente);
-                        //contaP.EscolherConta();
-                        //contaC.EscolherConta();
+                        conta.Cliente.CadastrarDados(respostaCpf, respostaNome);
+                        opcao = GuardarOpcaoCC(conta);
                         break;
                     case 2:
-                        Console.WriteLine("Depositar Dinheiro");
-                        conta.EscolherConta();
+                        conta.Depositar();
+                        opcao = GuardarOpcaoCC(conta);
                         break;
                     case 3:
-                        Console.WriteLine("Tranferir Dinheiro");
-                        conta.EscolherConta();
+                        conta.Transferir();
+                        opcao = GuardarOpcaoCC(conta);
                         break;
                     case 4:
-                        Console.WriteLine("Dados do Cliente");
-                        conta.EscolherConta();
+                        conta.ConsultarSaldo();
+                        opcao = GuardarOpcaoCC(conta);
                         break;
                     case 5:
-                        Console.WriteLine("Consultar Saldo/Dados da conta");
-                        
-                        Console.WriteLine("Saldo: R$ "+ contaP.ConsultaSaldo());
-                        Console.WriteLine("Saldo: R$ " + contaC.ConsultaSaldo());
-                        //contaPoupanca.AcrescentarRendimento(contaPoupanca);
-                        //Console.WriteLine($"Saldo mais rendimento mensal: {contaPoupanca.AcrescentarRendimento(contaPoupanca)}");
-                        //Console.WriteLine($"Saldo mais taxa mensal: {contaCorrente.DescontarTaxa(contaCorrente)}");
-
-                        Console.WriteLine(cliente.toString());
-                        Console.WriteLine(cliente.DataNascimento);
-                        
-                        if(contaP.ConsultaSaldo() < 5000)
-                        {
-                            Console.WriteLine("Usuário conta: Comum");
-
-                        }
-                        else if (contaP.ConsultaSaldo() < 15000)
-                        {
-                            Console.WriteLine("Usuário conta: Super");
-                        }
-                        else if (contaP.ConsultaSaldo() >= 15000)
-                        {
-                            Console.WriteLine("Usário conta: Premium");
-                        }
-                        break;
-                    case 6:
-                        Console.WriteLine("Sair");
-                        break;
-                    default:
-                        Console.WriteLine("Opção Inválida");
+                        EscolherConta();
                         break;
                 }
-            } while (opc != 6);
-            //!= se diferente de 5, ou seja, usuario inserir algum valor diferente do switch, ele invalida
+            }
+            while (opcao < int.MaxValue);
+            var cliente = new Cliente();
+            var cc = new ContaCorrente(cliente);
+            if (opcao > 5 || opcao <= 0)
+                Console.WriteLine("Opção inválida");
+            ChamarMenu(cc);
+        }
+
+        public static void ChamarMenuCP(Conta conta)
+        {
+
+            string respostaCpf = "";
+            string respostaNome = "";
+            int opcao = GuardarOpcaoCP(conta);
+            do
+            {
+                switch (opcao)
+                {
+                    case 1:
+                        conta.Cliente.CadastrarDados(respostaCpf, respostaNome);
+                        opcao = GuardarOpcaoCP(conta);
+                        break;
+                    case 2:
+                        conta.Depositar();
+                        opcao = GuardarOpcaoCP(conta);
+                        break;
+                    case 3:
+                        conta.Transferir();
+                        opcao = GuardarOpcaoCP(conta);
+                        break;
+                    case 4:
+                        conta.ConsultarSaldo();
+                        opcao = GuardarOpcaoCP(conta);
+                        break;
+                    case 5:
+
+                        EscolherConta();
+                        break;
+                }
+            } while (opcao < int.MaxValue);
+            var cliente = new Cliente();
+            var cp = new ContaPoupanca(cliente);
+            if (opcao > 5 || opcao <= 0)
+                Console.WriteLine("Opção inválida");
+            ChamarMenu(cp);
+
 
         }
     }
 }
+
+

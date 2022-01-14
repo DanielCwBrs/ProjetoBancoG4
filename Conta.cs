@@ -8,125 +8,45 @@ namespace Projeto_Banco_G4
 {
     abstract class Conta
     {
-        public string Numero { get; protected set; } //get, valor de retorno / set, valor de entrada
-        public decimal Saldo { get; protected set; } //lembrar de alterar para private "Testando"
-        public Cliente Cliente { get; protected set; }
-        public DateTime DataAbertura { get; set; }
-        public decimal ValorDepositado { get; set; }
-        //private int TipoDeConta { get; set; }
-
-        //enum TiposDeConta { contaCorrente = 1, contaPouPança = 2 }
+        public string Numero { get; set; }
+        public decimal Saldo { get; protected set; }
+        public Cliente Cliente { get; set; }
+        public string TipoConta { get; set; }
 
 
-
-        public Conta() { } //primeiro informamos ao nosso programa que utilizaremos uma classe sem parametros, ou seja, o construtor () é do tipo vazio,
-                           //ele não recebe nada
-        public Conta(string numero, decimal saldo, Cliente cliente, DateTime dataAbertura, decimal valor) //todas as minhas variaveis que utilizarei na minha classe "conta" ja recebem parametros,
-                                                                                     //esses parametros devem ser suas propriedades (Numero, Saldo, Cliente) que foram inseridas
-                                                                                     //em get-set, para que depois você as converta em tipos de variaveis, o
+        public Conta(Cliente cliente, string numero)
         {
-            this.Cliente = cliente;
-            this.Saldo = saldo;
-            this.Numero = numero;
-            this.DataAbertura = dataAbertura;
-            ValorDepositado = valor;
-            // this.TipoDeConta = tipodeconta;
+            Cliente = cliente;
+            Saldo = 0;
+            Numero = numero;
         }
 
-
-        public virtual void Transferir()
+        protected TipoCliente ClassificarCliente()
         {
-
-            Console.WriteLine("Qual o valor do saque?");
-            decimal valor = decimal.Parse(Console.ReadLine());
-
-            do
+            if (Saldo >= 15000)
             {
-                if (valor > 0)
-                {
+                return Cliente.Tipo = TipoCliente.Premium;
+            }
 
-
-                    if (Saldo - valor < 0)
-                    {
-                        Console.WriteLine($"Saldo insuficiente, sua conta possui: R${Saldo}");
-
-                    }
-                    else
-                    {
-                        Saldo -= valor;
-                        Console.WriteLine($"Saldo disponível da conta após o saque: R${Saldo}");
-
-
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Valor Invalido");
-                }
-            }while (valor <= 0);
-        }
-
-        public virtual void Depositar()
-        {
-            
-            Console.WriteLine("Qual o valor do deposito para Conta Corrente?");
-            decimal valor = decimal.Parse(Console.ReadLine());
-            if (valor > 0)
+            else if (Saldo >= 5000 && Saldo <= 14999)
             {
-
-                Saldo += valor;
-                Console.WriteLine($"Saldo disponível na conta corrente após o depósito: R$ {Saldo}");
+                return Cliente.Tipo = TipoCliente.Super;
             }
             else
             {
-                Console.WriteLine("Valor Invalido");
+                return Cliente.Tipo = TipoCliente.Comum;
             }
         }
 
-        public virtual void Criarconta(string numero, Cliente cliente)
-        {
-            DateTime data = DateTime.Today;
-        }
+        public abstract void Transferir();
 
-        public abstract decimal ConsultaSaldo();
+        public abstract void Depositar();
 
-        public virtual void EscolherConta()
-        {
-
-            int op;
-            do
-            {
-                Console.WriteLine("Selecione o tipo de conta do cliente:" +
-                    "1 para corrente" +
-                    "2 para poupança");
-                op = int.Parse(Console.ReadLine());
-                switch (op)
-                {
-                    case 1:
-                        Console.WriteLine("Conta Corrente escolhida");
-                        break;
-                    case 2:
-                        Console.WriteLine("Conta Poupança escolhida");
-                        break;
-                    default:
-                        Console.WriteLine("Opção Inválida");
-                        break;
-                }
-            } while (op != 1 && op != 2);
-            Console.WriteLine("Cliente Cadastrado com sucesso!");
-        }
+        public abstract void ConsultarSaldo();
 
 
 
 
-       
-        
-
-        
-        
-
-        //public abstract void Saca(decimal saldo);
-        
-        //public abstract void Operacoes(double saldo);
     }
 }
+

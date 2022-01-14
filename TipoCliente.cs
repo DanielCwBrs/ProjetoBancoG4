@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Projeto_Banco_G4
 {
-    internal class Menus
+    
+
+    public enum TipoCliente
     {
+        Comum, Super, Premium
     }
 }
+    
