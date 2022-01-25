@@ -8,18 +8,21 @@ namespace CorrecaoBanco
 {
     abstract class Conta
     {
+        public int Id { get; set; }
         public string Numero { get; set; }
         public decimal Saldo { get; protected set; }
         public Cliente Cliente { get; set; }
         public string TipoConta { get; set; }
 
 
-        public Conta(Cliente cliente, string numero)
+        public Conta(Cliente cliente, string numero, int id)
         {
             Cliente = cliente;
             Saldo = 0;
             Numero = numero;
+            Id = id;
         }
+        
 
         protected TipoCliente ClassificarCliente()
         {

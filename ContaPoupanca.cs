@@ -11,7 +11,7 @@ namespace CorrecaoBanco
     {
         private decimal TaxaRendimento { get; set; }
 
-        public ContaPoupanca(Cliente cliente) : base(cliente, "6868")
+        public ContaPoupanca(Cliente cliente) : base(cliente, "6868", 20)
         {
             TipoConta = "Poupança";
             TaxaRendimento = 0.05m;
@@ -53,11 +53,22 @@ namespace CorrecaoBanco
 
         public override void ConsultarSaldo()
         {
+            Cliente p = new Cliente(1);
+            p.Nome = Cliente.Nome;
+            p.Cpf = Cliente.Cpf;
+            p.DataNascimento = Cliente.DataNascimento;
+            p.Endereco = Cliente.Endereco;
+            p.Tipo = Cliente.Tipo;
+
+            Console.WriteLine($"ID Conta Poupança: {Id}");
             Console.WriteLine($"Esta conta pertence a : {Cliente.Nome} - CPF: {Cliente.Cpf}");
             Console.WriteLine($"Data de Nascimento: {Cliente.DataNascimento}");
+            Console.WriteLine($"Endereço: {Cliente.Endereco}");
             Console.WriteLine($"Número da conta poupança: {Numero}");
             Console.WriteLine($"O saldo atual da conta poupança é de R$ {Saldo}");
             Console.WriteLine($"O cliente é do tipo {Cliente.Tipo}");
+            Console.WriteLine("\n");
+            Console.WriteLine(p);
             Console.WriteLine("\nVoltando ao menu principal!\n");
             Thread.Sleep(10000);
         }

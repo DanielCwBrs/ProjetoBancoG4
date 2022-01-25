@@ -9,34 +9,52 @@ namespace CorrecaoBanco
 {
     class Cliente
     {
+        public int Id { get; private set; }
         public string Cpf { get; set; }
         public string Nome { get; set; }
         public TipoCliente Tipo { get; set; }
         public DateTime DataNascimento { get; set; }
-
+        public string Endereco { get; set; }
 
         public Cliente()
         {
             Tipo = TipoCliente.Comum;
         }
 
-        public Cliente(string inCpf, string inNome)
+        public Cliente(int id)
+        {
+            Id = id;
+        }
+
+        public override string ToString()
+        {
+            return "ID Cliente: " + Id + "\n" + "Nome: " + Nome + "\n" + "CPF: " + Cpf + "\n" + "Tipo de Conta: " + Tipo + "\n" + "Data de Nascimento: " + DataNascimento + "\n" + "Endereço: " + Endereco;
+        }
+
+        public Cliente(string inCpf, string inNome, string inEndereco)
         {
             Cpf = inCpf;
             Nome = inNome;
+            Endereco = inEndereco;
             Tipo = TipoCliente.Comum;
         }
 
 
         public void CadastrarDados()
         {
+            //Endereco endereco = new Endereco();
+
             string inCpf;
             string inNome;
             string inDataNascimento;
+            string inEndereco;
             bool validaDigitos;
 
             Console.WriteLine("Digite seu nome:");
             inNome = Console.ReadLine();
+
+            Console.WriteLine("Digite seu endereço:");
+            inEndereco = Console.ReadLine();
 
             bool continua = true;
             while (continua)
@@ -67,16 +85,11 @@ namespace CorrecaoBanco
                     Console.WriteLine("CPF não tem 11 dígitos!");
                 }
             } while (validaDigitos);
-            Console.WriteLine("Dados gravados com sucesso!\n");
-            Console.WriteLine("Voltando ao menu principal!\n");
-            Thread.Sleep(2000);
             
 
             Cpf = inCpf;
             Nome = inNome;
-            
-            
-
+            Endereco = inEndereco;
         }
 
     }
