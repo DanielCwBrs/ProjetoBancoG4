@@ -38,16 +38,21 @@ namespace CorrecaoBanco
             Console.WriteLine("Digite seu nome:");
             inNome = Console.ReadLine();
 
-            try
+            bool continua = true;
+            while (continua)
             {
-                Console.WriteLine("Digite sua data de nascimento:");
-                inDataNascimento = Console.ReadLine();
-                validaDigitos = inDataNascimento.Equals(DataNascimento);
-                DataNascimento = DateTime.ParseExact(inDataNascimento, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Termo inválido inserido, insira sua data de nascimento da seguinte forma: 01/01/0001\n");
+                try
+                {
+                    continua = false;
+                    Console.WriteLine("Digite sua data de nascimento:");
+                    inDataNascimento = Console.ReadLine();
+                    DataNascimento = DateTime.ParseExact(inDataNascimento, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                }
+                catch (FormatException)
+                {
+                    continua = true;
+                    Console.WriteLine("Termo inválido inserido, insira sua data de nascimento da seguinte forma: 01/01/0001\n");
+                }
             }
 
             do
