@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\ProjetoBancoG4\\ProjetoBancoG4\\Projeto_Banco_G4.csproj",
-      "projectName": "Projeto_Banco_G4",
-      "projectPath": "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\ProjetoBancoG4\\ProjetoBancoG4\\Projeto_Banco_G4.csproj",
+      "projectUniqueName": "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\ProjetoBancoG4\\ProjetoBancoG4\\CorrecaoBanco.csproj",
+      "projectName": "CorrecaoBanco",
+      "projectPath": "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\ProjetoBancoG4\\ProjetoBancoG4\\CorrecaoBanco.csproj",
       "packagesPath": "C:\\Users\\daamaral\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\daamaral\\Desktop\\trabalhos\\Projeto banco em C#\\ProjetoBancoG4\\ProjetoBancoG4\\obj\\",
       "projectStyle": "PackageReference",

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projeto_Banco_G4
+namespace CorrecaoBanco
 {
     abstract class Conta
     {
@@ -23,7 +23,7 @@ namespace Projeto_Banco_G4
 
         protected TipoCliente ClassificarCliente()
         {
-            if (Saldo >= 15000)
+            if(Saldo >= 15000)
             {
                 return Cliente.Tipo = TipoCliente.Premium;
             }
@@ -43,8 +43,7 @@ namespace Projeto_Banco_G4
         public abstract void Depositar();
 
         public abstract void ConsultarSaldo();
-
-
+        
 
 
     }

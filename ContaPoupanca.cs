@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace Projeto_Banco_G4
+namespace CorrecaoBanco
 {
     class ContaPoupanca : Conta
     {
         private decimal TaxaRendimento { get; set; }
 
-        public ContaPoupanca(Cliente cliente) : base(cliente, "454545")
+        public ContaPoupanca(Cliente cliente) : base(cliente, "6868")
         {
             TipoConta = "Poupança";
             TaxaRendimento = 0.05m;
@@ -24,12 +25,17 @@ namespace Projeto_Banco_G4
             if (Saldo < valor + TaxaRendimento)
             {
                 Console.WriteLine($"Você não tem saldo suficiente para essa transferência!\nSaldo: R${Saldo}");
+                Console.WriteLine("\nVoltando ao menu principal!\n");
+                Thread.Sleep(5000);
             }
             else
             {
                 Saldo -= valor + TaxaRendimento;
                 base.ClassificarCliente();
-                Console.WriteLine($"Você transferiu dinheiro da conta poupança!\nSaldo após o depósito: R${Saldo}");
+                Console.WriteLine($"Você transferiu dinheiro da conta poupança!\nSaldo após o transferência: R${Saldo}");
+                Console.WriteLine("Dados gravados com sucesso!\n");
+                Console.WriteLine("Voltando ao menu principal!\n");
+                Thread.Sleep(5000);
             }
         }
 
@@ -40,16 +46,20 @@ namespace Projeto_Banco_G4
             Saldo += valor + TaxaRendimento;
             ClassificarCliente();
             Console.WriteLine($"Você depositou dinheiro na conta poupança!\nSaldo após depósito: R${Saldo}");
+            Console.WriteLine("Dados gravados com sucesso!\n");
+            Console.WriteLine("Voltando ao menu principal!\n");
+            Thread.Sleep(5000);
         }
 
         public override void ConsultarSaldo()
         {
             Console.WriteLine($"Esta conta pertence a : {Cliente.Nome} - CPF: {Cliente.Cpf}");
+            Console.WriteLine($"Data de Nascimento: {Cliente.DataNascimento}");
             Console.WriteLine($"Número da conta poupança: {Numero}");
             Console.WriteLine($"O saldo atual da conta poupança é de R$ {Saldo}");
             Console.WriteLine($"O cliente é do tipo {Cliente.Tipo}");
+            Console.WriteLine("\nVoltando ao menu principal!\n");
+            Thread.Sleep(10000);
         }
     }
-
 }
-

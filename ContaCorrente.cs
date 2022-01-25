@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace Projeto_Banco_G4
+namespace CorrecaoBanco
 {
     class ContaCorrente : Conta
     {
         public decimal TaxaManutencao { get; set; }
 
-        public ContaCorrente(Cliente cliente) : base(cliente, "12345")
+        public ContaCorrente(Cliente cliente) : base(cliente, "4545")
         {
             TipoConta = "Corrente";
             TaxaManutencao = 1.50m;
@@ -23,12 +24,17 @@ namespace Projeto_Banco_G4
             if (Saldo < valor + TaxaManutencao)
             {
                 Console.WriteLine($"Você não tem saldo suficiente para essa transferência!\nSaldo: R${Saldo}");
+                Console.WriteLine("\nVoltando ao menu principal!\n");
+                Thread.Sleep(5000);
             }
             else
             {
                 Saldo -= valor + TaxaManutencao;
                 base.ClassificarCliente();
-                Console.WriteLine($"Você transferiu dinheiro da conta corrente!\nSaldo após o depósito: R${Saldo}");
+                Console.WriteLine($"Você transferiu dinheiro da conta!\nSaldo após o transferência: R${Saldo}");
+                Console.WriteLine("Dados gravados com sucesso!\n");
+                Console.WriteLine("Voltando ao menu principal!\n");
+                Thread.Sleep(5000);
             }
         }
 
@@ -38,15 +44,21 @@ namespace Projeto_Banco_G4
             decimal valor = decimal.Parse(Console.ReadLine());
             Saldo += valor - TaxaManutencao;
             ClassificarCliente();
-            Console.WriteLine($"Você depositou dinheiro na conta poupança!\nSaldo após depósito: R${Saldo}");
+            Console.WriteLine($"Você depositou dinheiro na conta corrente!\nSaldo após depósito: R${Saldo}");
+            Console.WriteLine("Dados gravados com sucesso!\n");
+            Console.WriteLine("Voltando ao menu principal!\n");
+            Thread.Sleep(5000);
         }
 
         public override void ConsultarSaldo()
         {
             Console.WriteLine($"Esta conta pertence a : {Cliente.Nome} - CPF: {Cliente.Cpf}");
-            Console.WriteLine($"Número da conta poupança: {Numero}");
-            Console.WriteLine($"O saldo atual da conta poupança é de R$ {Saldo}");
+            Console.WriteLine($"Data de Nascimento: {Cliente.DataNascimento}");
+            Console.WriteLine($"Número da conta corrente: {Numero}");
+            Console.WriteLine($"O saldo atual da conta corrente é de R$ {Saldo}");
             Console.WriteLine($"O cliente é do tipo {Cliente.Tipo}");
+            Console.WriteLine("\nVoltando ao menu principal!\n");
+            Thread.Sleep(10000);
         }
     }
 
