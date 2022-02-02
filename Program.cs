@@ -110,7 +110,7 @@ namespace CorrecaoBanco
             int opcao = GuardarOpcao(conta);
             do
             {
-                string caminho = @"C:\Users\daamaral\Desktop\trabalhos\Projeto banco em C#\ProjetoBancoG4\ProjetoBancoG4\Outros\ChavesPix.csv";
+                string caminho = @"C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\Outros\ChavesPix.csv";
                 Cliente cliente = new Cliente();
                 Conta cc = new ContaCorrente(cliente);
 
@@ -167,7 +167,7 @@ namespace CorrecaoBanco
             int opcao = GuardarOpcaoCP(conta);
             do
             {
-                string caminho = @"C:\Users\daamaral\Desktop\trabalhos\Projeto banco em C#\ProjetoBancoG4\ProjetoBancoG4\Outros\ChavesPix.csv";
+                string caminho = @"C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\Outros\ChavesPix.csv";
                 Cliente cliente = new Cliente();
                 Conta cc = new ContaPoupanca(cliente);
 

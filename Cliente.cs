@@ -14,7 +14,7 @@ namespace CorrecaoBanco
         public string Nome { get; set; }
         public TipoCliente Tipo { get; set; }
         public DateTime DataNascimento { get; set; }
-        public string Endereco { get; set; }
+        public Endereco Endereco { get; set; }
 
         public Cliente()
         {
@@ -31,30 +31,58 @@ namespace CorrecaoBanco
             return "ID Cliente: " + Id + "\n" + "Nome: " + Nome + "\n" + "CPF: " + Cpf + "\n" + "Tipo de Conta: " + Tipo + "\n" + "Data de Nascimento: " + DataNascimento + "\n" + "Endereço: " + Endereco;
         }
 
-        public Cliente(string inCpf, string inNome, string inEndereco)
+        public Cliente(string inCpf, string inNome)
         {
             Cpf = inCpf;
             Nome = inNome;
-            Endereco = inEndereco;
             Tipo = TipoCliente.Comum;
         }
 
 
         public void CadastrarDados()
         {
-            //Endereco endereco = new Endereco();
+            string cidade,
+                estado,
+                pais,
+                rua,
+                bairro,
+                complemento;
+            int numero,
+                cep;
 
             string inCpf;
             string inNome;
             string inDataNascimento;
-            string inEndereco;
             bool validaDigitos;
 
             Console.WriteLine("Digite seu nome:");
             inNome = Console.ReadLine();
 
-            Console.WriteLine("Digite seu endereço:");
-            inEndereco = Console.ReadLine();
+            Console.WriteLine("Digite sua cidade:");
+            cidade = Console.ReadLine();
+
+            Console.WriteLine("Digite seu estado:");
+            estado = Console.ReadLine();
+
+            Console.WriteLine("Digite seu país:");
+            pais = Console.ReadLine();
+
+            Console.WriteLine("Digite sua rua:");
+            rua = Console.ReadLine();
+
+            Console.WriteLine("Digite seu bairro:");
+            bairro = Console.ReadLine();
+
+            Console.WriteLine("Digite seu complemento:");
+            complemento = Console.ReadLine();
+
+            Console.WriteLine("Digite o número da sua residência:");
+            numero = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite seu CEP sem pontos ou traços:");
+            cep = Int32.Parse(Console.ReadLine());
+
+            Endereco _Endereco = new Endereco(cidade, estado, pais, rua, bairro, complemento, numero, cep);
 
             bool continua = true;
             while (continua)
@@ -85,11 +113,11 @@ namespace CorrecaoBanco
                     Console.WriteLine("CPF não tem 11 dígitos!");
                 }
             } while (validaDigitos);
-            
+
 
             Cpf = inCpf;
             Nome = inNome;
-            Endereco = inEndereco;
+            // Endereco = atribuir as variaveis ao get set
         }
 
     }

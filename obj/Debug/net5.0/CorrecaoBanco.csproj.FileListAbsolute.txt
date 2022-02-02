@@ -46,3 +46,19 @@ C:\Users\daamaral\Desktop\trabalhos\Projeto banco em C#\ProjetoBancoG4\ProjetoBa
 C:\Users\daamaral\Desktop\trabalhos\Projeto banco em C#\ProjetoBancoG4\ProjetoBancoG4\obj\Debug\net5.0\ref\CorrecaoBanco.dll
 C:\Users\daamaral\Desktop\trabalhos\Projeto banco em C#\ProjetoBancoG4\ProjetoBancoG4\obj\Debug\net5.0\CorrecaoBanco.pdb
 C:\Users\daamaral\Desktop\trabalhos\Projeto banco em C#\ProjetoBancoG4\ProjetoBancoG4\obj\Debug\net5.0\CorrecaoBanco.genruntimeconfig.cache
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\bin\Debug\net5.0\CorrecaoBanco.exe
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\bin\Debug\net5.0\CorrecaoBanco.deps.json
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\bin\Debug\net5.0\CorrecaoBanco.runtimeconfig.json
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\bin\Debug\net5.0\CorrecaoBanco.runtimeconfig.dev.json
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\bin\Debug\net5.0\CorrecaoBanco.dll
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\bin\Debug\net5.0\ref\CorrecaoBanco.dll
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\bin\Debug\net5.0\CorrecaoBanco.pdb
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\obj\Debug\net5.0\CorrecaoBanco.csproj.AssemblyReference.cache
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\obj\Debug\net5.0\CorrecaoBanco.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\obj\Debug\net5.0\CorrecaoBanco.AssemblyInfoInputs.cache
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\obj\Debug\net5.0\CorrecaoBanco.AssemblyInfo.cs
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\obj\Debug\net5.0\CorrecaoBanco.csproj.CoreCompileInputs.cache
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\obj\Debug\net5.0\CorrecaoBanco.dll
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\obj\Debug\net5.0\ref\CorrecaoBanco.dll
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\obj\Debug\net5.0\CorrecaoBanco.pdb
+C:\Users\danie\OneDrive\Desktop\trabalhos four\C#\Projetos C#\ProjetoBancoGit\ProjetoBancoG4\obj\Debug\net5.0\CorrecaoBanco.genruntimeconfig.cache
